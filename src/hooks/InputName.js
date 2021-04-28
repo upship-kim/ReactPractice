@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 const InputName = () => {
     const [name, setName] = useState('');
@@ -10,6 +10,13 @@ const InputName = () => {
     const onChangeNik = (e) => {
         setNik(e.target.value);
     };
+
+    useEffect(() => {
+        console.log('마운트 될 때 실행되요');
+        return () => {
+            console.log('언마운트 직전 ?? 이나 업데이트 직전??');
+        };
+    }, []);
 
     return (
         <div>
