@@ -3,9 +3,10 @@ import Counter from './hooks/Counter';
 import InputName from './hooks/InputName';
 import {useState} from 'react';
 import Input from './hooks/Input';
+import Average from './hooks/useMemo/Average';
 
 function App() {
-    const [view, setView] = useState(false);
+    const [view, setView] = useState(true);
 
     return (
         <>
@@ -18,6 +19,7 @@ function App() {
                     <Counter />
                     <InputName />
                     <Input />
+                    <Average />
                 </div>
             )}
         </>

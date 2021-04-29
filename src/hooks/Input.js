@@ -1,13 +1,10 @@
 import React, {useReducer} from 'react';
+import useInputs from './Reducer';
 import Reducer from './Reducer';
 
 const Input = () => {
-    const [form, dispatch] = useReducer(Reducer, {name: '', email: ''});
-    const {name, email} = form;
-
-    const onChange = (e) => {
-        dispatch(e.target);
-    };
+    const [state, onChange] = useInputs({name: '', email: ''});
+    const {name, email} = state;
 
     return (
         <div>
