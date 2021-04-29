@@ -4,13 +4,14 @@ import InputName from './hooks/InputName';
 import {useState} from 'react';
 import Input from './hooks/Input';
 import Average from './hooks/useMemo/Average';
+import ImmerApp from './immerLibrary/ImmerApp';
 
 function App() {
     const [view, setView] = useState(true);
 
     return (
         <>
-            <button onClick={() => setView(!view)}>
+            {/* <button onClick={() => setView(!view)}>
                 {view ? '숨기기' : '보이기'}
             </button>
             {view && (
@@ -21,7 +22,8 @@ function App() {
                     <Input />
                     <Average />
                 </div>
-            )}
+            )} */}
+            <ImmerApp />
         </>
     );
 }
