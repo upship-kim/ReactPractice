@@ -1,4 +1,5 @@
 import React, {useCallback, useRef, useState} from 'react';
+import produce from 'immer';
 
 const ImmerApp = () => {
     const nextId = useRef(1);
@@ -17,10 +18,11 @@ const ImmerApp = () => {
     const onChange = useCallback(
         (e) => {
             const {name, value} = e.target;
-            setForm({
-                ...form,
-                [name]: value,
-            });
+            setForm(
+                produce(form, (draft) => {
+                    draft[name] = value;
+                })
+            );
         },
         [form]
     );
@@ -33,10 +35,11 @@ const ImmerApp = () => {
                 name: form.name,
                 username: form.username,
             };
-            setData({
-                ...data,
-                array: data.array.concat(info),
-            });
+            setData(
+                produce(data, (draft) => {
+                    draft.array.push(info);
+                })
+            );
             nextId.current += 1;
             setForm(initState);
         },
@@ -45,10 +48,15 @@ const ImmerApp = () => {
 
     const onRemove = useCallback(
         (id) => {
-            setData({
-                ...data,
-                array: data.array.filter((form) => form.id !== id),
-            });
+            setData(
+                produce(data, (draft) => {
+                    draft.array.splice(
+                        draft.array.findIndex((form) => form.id === id),
+                        1
+                    );
+                })
+                // array: data.array.filter((form) => form.id !== id),
+            );
         },
         [data]
     );
