@@ -18,8 +18,15 @@ const ImmerApp = () => {
     const onChange = useCallback(
         (e) => {
             const {name, value} = e.target;
+            // setForm(
+            //     produce(form, (draft) => {
+            //         draft[name] = value;
+            //     })
+            // );
+
+            //produce() 의 첫번째 파라미터가 originState가 아닌 draft의 함수 형태이면 업데이트 함수가 반환된다.
             setForm(
-                produce(form, (draft) => {
+                produce((draft) => {
                     draft[name] = value;
                 })
             );
@@ -35,8 +42,15 @@ const ImmerApp = () => {
                 name: form.name,
                 username: form.username,
             };
+            // setData(
+            //     produce(data, (draft) => {
+            //         draft.array.push(info);
+            //     })
+            // );
+
+            //produce() 의 첫번째 파라미터가 originState가 아닌 draft의 함수 형태이면 업데이트 함수가 반환된다.
             setData(
-                produce(data, (draft) => {
+                produce((draft) => {
                     draft.array.push(info);
                 })
             );
@@ -48,14 +62,23 @@ const ImmerApp = () => {
 
     const onRemove = useCallback(
         (id) => {
+            // setData(
+            //     produce(data, (draft) => {
+            //         draft.array.splice(
+            //             draft.array.findIndex((form) => form.id === id),
+            //             1
+            //         );
+            //     })
+            // );
+
+            //produce() 의 첫번째 파라미터가 originState가 아닌 draft의 함수 형태이면 업데이트 함수가 반환된다.
             setData(
-                produce(data, (draft) => {
+                produce((draft) => {
                     draft.array.splice(
                         draft.array.findIndex((form) => form.id === id),
                         1
                     );
                 })
-                // array: data.array.filter((form) => form.id !== id),
             );
         },
         [data]
