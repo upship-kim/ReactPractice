@@ -2,6 +2,7 @@ import IterationSample from './jsMap/IterationSample';
 import Counter from './hooks/Counter';
 import InputName from './hooks/InputName';
 import {useState} from 'react';
+import Input from './hooks/Input';
 
 function App() {
     const [view, setView] = useState(false);
@@ -16,6 +17,7 @@ function App() {
                     <IterationSample />
                     <Counter />
                     <InputName />
+                    <Input />
                 </div>
             )}
         </>
