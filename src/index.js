@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from 'react-router-dom'; //HTML5 History api를 사용해서 현재 주소와 관련된 정보를 props로 쉽게 조회하거나 사용하게 해줌(history, match, location)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

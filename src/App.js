@@ -5,9 +5,10 @@ import {useState} from 'react';
 import Input from './hooks/Input';
 import Average from './hooks/useMemo/Average';
 import ImmerApp from './immerLibrary/ImmerApp';
+import RouteApp from './router/RouteApp';
 
 function App() {
-    const [view, setView] = useState(true);
+    // const [view, setView] = useState(true);
 
     return (
         <>
@@ -23,7 +24,8 @@ function App() {
                     <Average />
                 </div>
             )} */}
-            <ImmerApp />
+            {/* <ImmerApp /> */}
+            <RouteApp />
         </>
     );
 }
