@@ -1,5 +1,6 @@
 import React from 'react';
 import datas from './Datas';
+import WithRouterSample from './WithRouterSample';
 
 const Profile = ({match, location}) => {
     const {id} = match.params;
@@ -12,6 +13,7 @@ const Profile = ({match, location}) => {
         <div>
             <h3>{data.id}</h3>
             <p>{data.name}</p>
+            <WithRouterSample />
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router';
+import {Route, Switch} from 'react-router';
 import {Link} from 'react-router-dom';
 import About from './page/About';
 import History from './page/History';
@@ -29,10 +29,23 @@ const RouteApp = () => {
                 </li>
             </ul>
             <hr />
-            <Route exact path={['/', '/home']} component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/profiles" component={Profiles} />
-            <Route path="/history" component={History} />
+            <Switch>
+                <Route exact path={['/', '/home']} component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/profiles" component={Profiles} />
+                <Route path="/history" component={History} />
+                <Route
+                    render={({location}) => (
+                        <div>
+                            요청하신 페이지를 찾을 수가 없어 (
+                            <small>
+                                <b>{location.pathname}</b> 이 뭐람..
+                            </small>
+                            )
+                        </div>
+                    )}
+                />
+            </Switch>
         </>
     );
 };
