@@ -1,21 +1,7 @@
 import React from 'react';
 import {Link, Route} from 'react-router-dom';
+import datas from './Datas';
 import Profile from './Profile';
-
-const datas = [
-    {
-        id: 'data1',
-        name: '마우스',
-    },
-    {
-        id: 'data2',
-        name: '키보드',
-    },
-    {
-        id: 'data3',
-        name: '모니터',
-    },
-];
 
 const Profiles = () => {
     return (

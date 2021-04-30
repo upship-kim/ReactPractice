@@ -12,5 +12,4 @@ const datas = [
         name: '모니터',
     },
 ];
-
 export default datas;

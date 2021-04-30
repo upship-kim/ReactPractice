@@ -16,6 +16,11 @@ const RouteApp = () => {
                     <Link to="/about">about으로 이동</Link>
                 </li>
                 <li>
+                    <Link to="/about?detail=true">
+                        about 인데 datail = true으로 이동
+                    </Link>
+                </li>
+                <li>
                     <Link to="/profiles">profile로 이동</Link>
                 </li>
             </ul>
