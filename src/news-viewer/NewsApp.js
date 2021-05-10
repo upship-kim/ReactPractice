@@ -1,23 +1,34 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {apiKey} from './config/ApiKey';
+import Categories from './component/Categories';
+import Header from './component/Header';
+import {Route} from 'react-router';
+import NewsPage from './component/NewsPage';
 
 const NewsApp = () => {
     const [data, setData] = useState('');
 
-    const onClick = async () => {
-        console.log('click');
-        const result = await axios.get(
-            'https://jsonplaceholder.typicode.com/todos/1'
-        );
-        setData(result.data);
-    };
+    useEffect(() => {
+        async function aa() {
+            const result = await axios.get(
+                `https://newsapi.org/v2/top-headlines?country=kr&category=sports&apiKey=${apiKey}`
+            );
+            setData(result.data.articles);
+        }
+        aa();
+    }, []);
 
     return (
         <>
-            <button onClick={onClick}>불러오기</button>
-            {data && (
-                <textarea value={JSON.stringify(data, null, 2)} rows={7} />
-            )}
+            <Header />
+            <Categories />
+            {/* <textarea
+                value={JSON.stringify(data, null, 2)}
+                rows={7}
+                readOnly={true}
+            /> */}
+            <Route path="/:category?" component={NewsPage} />
         </>
     );
 };
