@@ -9,6 +9,10 @@ const Profile = ({match, location}) => {
     const [data] = datas.filter((data) => data.id === id);
     console.log(data);
 
+    if (data === undefined) {
+        return <div>그런 data가 없어.....</div>;
+    }
+
     return (
         <div>
             <h3>{data.id}</h3>

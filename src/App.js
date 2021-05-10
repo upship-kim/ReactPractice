@@ -6,6 +6,7 @@ import Input from './hooks/Input';
 import Average from './hooks/useMemo/Average';
 import ImmerApp from './immerLibrary/ImmerApp';
 import RouteApp from './router/RouteApp';
+import NewsApp from './news-viewer/NewsApp';
 
 function App() {
     // const [view, setView] = useState(true);
@@ -25,7 +26,8 @@ function App() {
                 </div>
             )} */}
             {/* <ImmerApp /> */}
-            <RouteApp />
+            {/* <RouteApp /> */}
+            <NewsApp />
         </>
     );
 }

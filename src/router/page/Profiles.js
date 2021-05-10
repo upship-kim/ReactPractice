@@ -19,6 +19,7 @@ const Profiles = () => {
                     );
                 })}
             </ul>
+
             <Route path="/profiles/:id" component={Profile} />
         </div>
     );
