@@ -1,5 +1,8 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
+import {apiKey} from '../config/ApiKey';
+import usePromise from '../customHook/usePromise';
 import Item from './Item';
 import Responsive from './Responsive';
 
@@ -26,8 +29,19 @@ const article = {
 };
 
 const ItemList = ({category}) => {
+    const [resolve, error, loading] = usePromise(() => {
+        const query = category === 'all' ? '' : `&category=${category}`;
+        return axios.get(
+            `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=${apiKey}`
+        );
+    }, [category]);
+    console.log(resolve);
     return (
         <ItemListBlock>
+            <Item article={article} />
+            <Item article={article} />
+            <Item article={article} />
+            <Item article={article} />
             <Item article={article} />
         </ItemListBlock>
     );

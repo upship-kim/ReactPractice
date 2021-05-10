@@ -7,6 +7,7 @@ const ItemBlock = styled.div`
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
+
     margin: 0 auto;
     img {
         width: 20%;
@@ -16,12 +17,15 @@ const ItemBlock = styled.div`
         flex: 1;
         margin-left: 3rem;
     }
+    & + & {
+        padding-top: 4rem;
+    }
 `;
 
 const Item = ({article}) => {
     return (
         <ItemBlock>
-            <img src={article.urlToImage} />
+            <img src={article.urlToImage} alt={article.title} />
             <div>
                 <h3>{article.title}</h3>
                 <p>{article.description} </p>

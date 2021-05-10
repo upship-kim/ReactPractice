@@ -7,18 +7,6 @@ import {Route} from 'react-router';
 import NewsPage from './component/NewsPage';
 
 const NewsApp = () => {
-    const [data, setData] = useState('');
-
-    useEffect(() => {
-        async function aa() {
-            const result = await axios.get(
-                `https://newsapi.org/v2/top-headlines?country=kr&category=sports&apiKey=${apiKey}`
-            );
-            setData(result.data.articles);
-        }
-        aa();
-    }, []);
-
     return (
         <>
             <Header />
