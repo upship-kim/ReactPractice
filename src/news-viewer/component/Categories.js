@@ -47,8 +47,9 @@ const Category = styled(NavLink)`
     cursor: pointer;
     text-decoration: none;
     &.active {
-        background: blue;
-        color: white;
+        background: #ffffff;
+        color: black;
+        border-bottom: 2px blueviolet solid;
     }
 `;
 

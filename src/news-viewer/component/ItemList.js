@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import {apiKey} from '../config/ApiKey';
-import usePromise from '../customHook/usePromise';
 import Item from './Item';
 import Responsive from './Responsive';
 

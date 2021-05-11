@@ -25,11 +25,25 @@ const ItemBlock = styled.div`
 const Item = ({article}) => {
     return (
         <ItemBlock>
-            <img src={article.urlToImage} alt="thumnail" />
-            <div>
-                <h3>{article.title}</h3>
-                <p>{article.description} </p>
-            </div>
+            {article.urlToImage && (
+                <>
+                    {/* <a href={article.url}> */}
+                    <img src={article.urlToImage} alt="thumnail" />
+                    {/* </a> */}
+                    <div>
+                        <h3>
+                            <a
+                                href={article.url}
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                {article.title}
+                            </a>
+                        </h3>
+                        <p>{article.description} </p>
+                    </div>
+                </>
+            )}
         </ItemBlock>
     );
 };
