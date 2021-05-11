@@ -5,7 +5,7 @@
 /node_modules
 /.pnp
 .pnp.js
-/config
+./src/news-viewer/config
 
 # testing
 /coverage
