@@ -9,6 +9,9 @@ import RouteApp from './router/RouteApp';
 import NewsApp from './news-viewer/NewsApp';
 import NewsPage from './news-viewer/component/NewsPage';
 import {Route} from 'react-router';
+import ColorBox from './contextAPI/components/ColorBox';
+import ColorContext, {ColorProvider} from './contextAPI/contexts/color';
+import SelectColor from './contextAPI/components/SelectColor';
 
 function App() {
     // const [view, setView] = useState(true);
@@ -29,7 +32,11 @@ function App() {
             )} */}
             {/* <ImmerApp /> */}
             {/* <RouteApp /> */}
-            <NewsApp />
+            {/* <NewsApp /> */}
+            <ColorProvider>
+                <SelectColor />
+                <ColorBox />
+            </ColorProvider>
         </>
     );
 }
