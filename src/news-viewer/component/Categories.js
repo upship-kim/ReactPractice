@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 import Responsive from './Responsive';
 
@@ -59,7 +59,7 @@ const Categories = () => {
                 <Category
                     key={i.name}
                     activeClassName="active"
-                    exact={true}
+                    exact={i.name === 'all'}
                     to={i.name === 'all' ? '/' : `/${i.name}`}
                 >
                     {i.text}

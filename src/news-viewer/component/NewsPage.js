@@ -2,8 +2,9 @@ import React from 'react';
 import ItemList from './ItemList';
 
 const NewsPage = ({match}) => {
-    console.log(match.params);
-    return <ItemList category={match.params.category} />;
+    const category = match.params.category || 'all';
+
+    return <ItemList category={category} />;
 };
 
 export default NewsPage;

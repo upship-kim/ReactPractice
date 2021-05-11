@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
-function usePromise(axios, category) {
-    const [resolve, setResolve] = useState(null);
+export default function usePromise(getAxios, category) {
+    const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -9,8 +9,8 @@ function usePromise(axios, category) {
         const process = async () => {
             setLoading(true);
             try {
-                const result = await axios();
-                setResolve(result);
+                const result = await getAxios();
+                setResponse(result);
             } catch (e) {
                 setError(e);
             }
@@ -20,7 +20,5 @@ function usePromise(axios, category) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, category);
 
-    return [resolve, error, loading];
+    return [response, error, loading];
 }
-
-export default usePromise;

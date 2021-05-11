@@ -25,7 +25,7 @@ const ItemBlock = styled.div`
 const Item = ({article}) => {
     return (
         <ItemBlock>
-            <img src={article.urlToImage} alt={article.title} />
+            <img src={article.urlToImage} alt="thumnail" />
             <div>
                 <h3>{article.title}</h3>
                 <p>{article.description} </p>

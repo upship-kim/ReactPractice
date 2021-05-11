@@ -7,6 +7,8 @@ import Average from './hooks/useMemo/Average';
 import ImmerApp from './immerLibrary/ImmerApp';
 import RouteApp from './router/RouteApp';
 import NewsApp from './news-viewer/NewsApp';
+import NewsPage from './news-viewer/component/NewsPage';
+import {Route} from 'react-router';
 
 function App() {
     // const [view, setView] = useState(true);

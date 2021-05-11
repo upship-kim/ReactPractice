@@ -11,11 +11,6 @@ const NewsApp = () => {
         <>
             <Header />
             <Categories />
-            {/* <textarea
-                value={JSON.stringify(data, null, 2)}
-                rows={7}
-                readOnly={true}
-            /> */}
             <Route path="/:category?" component={NewsPage} />
         </>
     );
