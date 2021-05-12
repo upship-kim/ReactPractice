@@ -12,6 +12,7 @@ import {Route} from 'react-router';
 import ColorBox from './contextAPI/components/ColorBox';
 import ColorContext, {ColorProvider} from './contextAPI/contexts/color';
 import SelectColor from './contextAPI/components/SelectColor';
+import TextBox from './contextAPI/components/TextBox';
 
 function App() {
     // const [view, setView] = useState(true);
@@ -36,6 +37,7 @@ function App() {
             <ColorProvider>
                 <SelectColor />
                 <ColorBox />
+                <TextBox />
             </ColorProvider>
         </>
     );
