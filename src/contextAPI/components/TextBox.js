@@ -6,10 +6,16 @@ const TextBox = () => {
 
     return (
         <div>
-            <h1 style={{color: state.color}}>main color: {state.color}</h1>
-            <h2 style={{color: state.subColor}}>sub color: {state.subColor}</h2>
+            {state.color && (
+                <h1 style={{color: state.color}}>main color: {state.color}</h1>
+            )}
+            {state.subColor && (
+                <h2 style={{color: state.subColor}}>
+                    sub color: {state.subColor}
+                </h2>
+            )}
         </div>
     );
-};
+}
 
 export default TextBox;

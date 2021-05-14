@@ -13,6 +13,7 @@ import ColorBox from './contextAPI/components/ColorBox';
 import ColorContext, {ColorProvider} from './contextAPI/contexts/color';
 import SelectColor from './contextAPI/components/SelectColor';
 import TextBox from './contextAPI/components/TextBox';
+import Component from './redux/Component';
 
 function App() {
     // const [view, setView] = useState(true);
@@ -39,6 +40,7 @@ function App() {
                 <ColorBox />
                 <TextBox />
             </ColorProvider>
+            <Component />
         </>
     );
 }
