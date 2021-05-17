@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'; //HTML5 History api를 사용해서 현재 주소와 관련된 정보를 props로 쉽게 조회하거나 사용하게 해줌(history, match, location)
-import {createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import {Provider} from 'react-redux';
-import rootReducer from './redux/module';
+import rootReducer from './redux(without_book)/modules';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
 const store = createStore(rootReducer, composeWithDevTools());

@@ -1,5 +1,4 @@
 import IterationSample from './jsMap/IterationSample';
-import Counter from './hooks/Counter';
 import InputName from './hooks/InputName';
 import {useState} from 'react';
 import Input from './hooks/Input';
@@ -17,6 +16,7 @@ import Component from './redux/Component';
 import Container from './redux/Container';
 import TodoComponent from './redux/TodoComponent';
 import TodoContainer from './redux/TodoContainer';
+import ReduxApp from './redux(without_book)/ReduxApp';
 
 function App() {
     // const [view, setView] = useState(true);
@@ -43,8 +43,9 @@ function App() {
                 <ColorBox />
                 <TextBox />
             </ColorProvider> */}
-            <Container />
-            <TodoContainer />
+            {/* <Counter />
+            <TodoContainer /> */}
+            <ReduxApp />
         </>
     );
 }
