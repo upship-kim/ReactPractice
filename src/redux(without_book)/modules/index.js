@@ -5,7 +5,7 @@ import todos from './todos';
 
 const rootReducer = combineReducers({
     counter,
-    // todos,
+    todos,
 });
 
 export default rootReducer;

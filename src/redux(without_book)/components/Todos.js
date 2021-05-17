@@ -1,25 +1,41 @@
 import React from 'react';
 
-const TodoItems = () => {
+const TodoItems = ({todos, onToggle, onRemove}) => {
     return (
-        <div>
-            <input type="checkBox" />
-            <span>예제 텍스트</span>
-            <button>삭제</button>
-        </div>
+        <>
+            {todos.map((todo) => (
+                <div key={todo.id}>
+                    <input
+                        type="checkBox"
+                        onClick={() => onToggle(todo.id)}
+                        checked={todo.done}
+                        readOnly={true}
+                    />
+                    <span>{todo.text}</span>
+                    <button onClick={() => onRemove(todo.id)}>삭제</button>
+                </div>
+            ))}
+        </>
     );
 };
 
-const Todos = () => {
+const Todos = ({input, todos, onInsert, onRemove, onToggle, onChangeInput}) => {
+    const onSubmit = (e) => {
+        e.preventDefault();
+        onInsert(input);
+    };
+
+    const onChange = (e) => {
+        onChangeInput(e.target.value);
+    };
+
     return (
         <div>
-            <div>
-                <input />
-                <button>등록</button>
-            </div>
-            <TodoItems />
-            <TodoItems />
-            <TodoItems />
+            <form onSubmit={onSubmit}>
+                <input value={input} onChange={onChange} />
+                <button type="submit">등록</button>
+            </form>
+            <TodoItems todos={todos} onRemove={onRemove} onToggle={onToggle} />
         </div>
     );
 };
