@@ -7,9 +7,12 @@ const TodosContainer = () => {
     const {input, todos} = useSelector((state) => state.todos);
     const dispatch = useDispatch();
 
-    const onChangeInput = useCallback((input) => {
-        dispatch(change_input(input));
-    }, []);
+    const onChangeInput = useCallback(
+        (input) => {
+            dispatch(change_input(input));
+        },
+        [dispatch]
+    );
 
     const onInsert = useCallback(
         (text) => {
@@ -17,6 +20,7 @@ const TodosContainer = () => {
         },
         [dispatch]
     );
+
     const onRemove = useCallback(
         (id) => {
             dispatch(remove(id));
@@ -44,4 +48,4 @@ const TodosContainer = () => {
     );
 };
 
-export default TodosContainer;
+export default React.memo(TodosContainer);

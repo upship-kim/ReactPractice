@@ -28,23 +28,23 @@ const initState = {
 
 const todos = handleActions(
     {
-        [CHANGE_INPUT]: (state, {payment: input}) => ({
+        [CHANGE_INPUT]: (state, action) => ({
             ...state,
-            input: input,
+            input: action.payload,
         }),
-        [INSERT]: (state, {payment: todo}) => ({
+        [INSERT]: (state, action) => ({
             ...state,
-            todos: state.todos.concat(todo),
+            todos: state.todos.concat(action.payload),
         }),
-        [TOGGLE]: (state, {payment: id}) => ({
+        [TOGGLE]: (state, action) => ({
             ...state,
             todos: state.todos.map((todo) =>
-                todo.id === id ? {...todo, done: !todo.done} : todo
+                todo.id === action.payload ? {...todo, done: !todo.done} : todo
             ),
         }),
-        [REMOVE]: (state, {payment: id}) => ({
+        [REMOVE]: (state, action) => ({
             ...state,
-            todos: state.todos.filter((todo) => todo.id !== id),
+            todos: state.todos.filter((todo) => todo.id !== action.payload),
         }),
     },
     initState

@@ -2,7 +2,7 @@ import React from 'react';
 
 const TodoItems = ({todos, onToggle, onRemove}) => {
     return (
-        <>
+        <div>
             {todos.map((todo) => (
                 <div key={todo.id}>
                     <input
@@ -15,7 +15,7 @@ const TodoItems = ({todos, onToggle, onRemove}) => {
                     <button onClick={() => onRemove(todo.id)}>삭제</button>
                 </div>
             ))}
-        </>
+        </div>
     );
 };
 
@@ -23,6 +23,7 @@ const Todos = ({input, todos, onInsert, onRemove, onToggle, onChangeInput}) => {
     const onSubmit = (e) => {
         e.preventDefault();
         onInsert(input);
+        onChangeInput('');
     };
 
     const onChange = (e) => {
