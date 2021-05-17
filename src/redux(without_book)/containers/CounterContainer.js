@@ -1,18 +1,23 @@
 import React, {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Counter from '../components/Counter';
-import {increase, decrease} from '../modules/counter';
+import {
+    increase,
+    decrease,
+    increase_Async,
+    decrease_Async,
+} from '../modules/counter';
 
 const CounterContainer = () => {
     const number = useSelector((state) => state.counter.number);
     const dispatch = useDispatch();
 
     const onIncrease = useCallback(() => {
-        dispatch(increase());
+        dispatch(increase_Async());
     }, [dispatch]);
 
     const onDecrease = useCallback(() => {
-        dispatch(decrease());
+        dispatch(decrease_Async());
     }, [dispatch]);
 
     return (
