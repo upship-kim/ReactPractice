@@ -1,8 +1,8 @@
 import React from 'react';
 import {createAction, handleActions} from 'redux-actions';
 
-const INCREASE = 'redux/INCREASE';
-const DECREASE = 'redux/DECREASE';
+const INCREASE = 'counter/INCREASE';
+const DECREASE = 'counter/DECREASE';
 
 export const increase = createAction(INCREASE);
 export const decrease = createAction(DECREASE);

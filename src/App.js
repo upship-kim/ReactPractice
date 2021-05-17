@@ -16,6 +16,7 @@ import TextBox from './contextAPI/components/TextBox';
 import Component from './redux/Component';
 import Container from './redux/Container';
 import TodoComponent from './redux/TodoComponent';
+import TodoContainer from './redux/TodoContainer';
 
 function App() {
     // const [view, setView] = useState(true);
@@ -43,7 +44,7 @@ function App() {
                 <TextBox />
             </ColorProvider> */}
             <Container />
-            <TodoComponent />
+            <TodoContainer />
         </>
     );
 }
