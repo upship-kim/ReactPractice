@@ -1,5 +1,6 @@
 import React from 'react';
 import {createAction, handleActions} from 'redux-actions';
+import {produce} from 'immer';
 
 //input이 바뀔때, 등록, 토글, 삭제
 
@@ -38,20 +39,24 @@ const initState = {
 
 const todo = handleActions(
     {
-        [CHANGEINPUT]: (state, action) => ({
-            ...state,
-            input: action.payload,
-        }),
-        [INSERT]: (state, action) => ({
-            ...state,
-            todos: state.todos.concat(action.payload),
-        }),
-        [TOGGLE]: (state, action) => ({
-            ...state,
-            todos: state.todos.map((todo) =>
-                todo.id === action.payload ? {...todo, done: !todo.done} : todo
-            ),
-        }),
+        [CHANGEINPUT]: (state, action) =>
+            produce(state, (draft) => {
+                draft.input = action.payload;
+            }),
+
+        [INSERT]: (state, action) =>
+            produce(state, (draft) => {
+                draft.todos.push(action.payload);
+            }),
+
+        [TOGGLE]: (state, action) =>
+            produce(state, (draft) => {
+                const todo = draft.todos.find(
+                    (todo) => todo.id === action.payload
+                );
+                todo.done = !todo.done;
+            }),
+
         [REMOVE]: (state, action) => ({
             ...state,
             todos: state.todos.filter((todo) => todo.id !== action.payload),
