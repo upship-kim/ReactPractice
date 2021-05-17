@@ -6,9 +6,9 @@ const buttonStyle = {
 
 const Component = ({number, increase, decrease}) => {
     return (
-        <>
-            <div style={{display: 'flex', flexDirection: 'column'}}>
-                <h2>{number}</h2>
+        <div>
+            <h1>{number}</h1>
+            <div>
                 <button style={buttonStyle} onClick={increase}>
                     +1
                 </button>
@@ -16,7 +16,7 @@ const Component = ({number, increase, decrease}) => {
                     -1
                 </button>
             </div>
-        </>
+        </div>
     );
 };
 

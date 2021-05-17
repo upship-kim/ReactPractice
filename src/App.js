@@ -14,6 +14,8 @@ import ColorContext, {ColorProvider} from './contextAPI/contexts/color';
 import SelectColor from './contextAPI/components/SelectColor';
 import TextBox from './contextAPI/components/TextBox';
 import Component from './redux/Component';
+import Container from './redux/Container';
+import TodoComponent from './redux/TodoComponent';
 
 function App() {
     // const [view, setView] = useState(true);
@@ -35,12 +37,13 @@ function App() {
             {/* <ImmerApp /> */}
             {/* <RouteApp /> */}
             {/* <NewsApp /> */}
-            <ColorProvider>
+            {/* <ColorProvider>
                 <SelectColor />
                 <ColorBox />
                 <TextBox />
-            </ColorProvider>
-            <Component />
+            </ColorProvider> */}
+            <Container />
+            <TodoComponent />
         </>
     );
 }
