@@ -21,7 +21,7 @@ const PostItem = styled.div`
     }
 `;
 
-const PostList = ({post, loading, error}) => {
+const PostList = ({post, loading, error, onLoad}) => {
     if (loading) {
         return <div>loading...</div>;
     }
@@ -35,12 +35,23 @@ const PostList = ({post, loading, error}) => {
     }
     return (
         <PostListBlock>
+            <button style={{width: '20%'}} onClick={() => onLoad(1)}>
+                user ID 1 post 불러오기
+            </button>
+            <button style={{width: '20%'}} onClick={() => onLoad(2)}>
+                user ID 2 post 불러오기
+            </button>
+
             {post &&
                 post.map((p) => (
-                    <PostItem>
+                    <PostItem key={p.id}>
                         <h2>{p.title}</h2>
-                        <small>#{p.userId}</small>
-                        <div className="body">{p.body}</div>
+                        <small>User ID: #{p.userId}</small>
+                        <div className="body">
+                            {p.body.length > 100
+                                ? `${p.body.slice(0, 100)}...`
+                                : p.body}
+                        </div>
                     </PostItem>
                 ))}
         </PostListBlock>
