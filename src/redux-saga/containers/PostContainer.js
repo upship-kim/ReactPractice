@@ -1,10 +1,10 @@
 import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import PostList from '../components/PostList';
-import {getPost} from '../modules/post';
+import {getPhoto, getPost} from '../modules/post';
 
 const PostContainer = () => {
-    const {post, loading, error} = useSelector((state) => state.post);
+    const {post, photo, loading, error} = useSelector((state) => state.post);
     const dispatch = useDispatch();
 
     const onLoad = useCallback(
@@ -14,6 +14,14 @@ const PostContainer = () => {
             } catch (e) {}
         },
         [getPost]
+    );
+    const onLoadPhoto = useCallback(
+        async (id) => {
+            try {
+                dispatch(await getPhoto(id));
+            } catch (e) {}
+        },
+        [getPhoto]
     );
 
     // useEffect(() => {
@@ -26,7 +34,14 @@ const PostContainer = () => {
     // }, [getPost]);
 
     return (
-        <PostList post={post} loading={loading} error={error} onLoad={onLoad} />
+        <PostList
+            post={post}
+            photo={photo}
+            loading={loading}
+            error={error}
+            onLoad={onLoad}
+            onLoadPhoto={onLoadPhoto}
+        />
     );
 };
 

@@ -21,7 +21,15 @@ const PostItem = styled.div`
     }
 `;
 
-const PostList = ({post, loading, error, onLoad}) => {
+const PhotoItem = styled.div`
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+    text-align: center;
+    /* width: 10rem; */
+`;
+
+const PostList = ({photo, post, loading, error, onLoad, onLoadPhoto}) => {
     if (loading) {
         return <div>loading...</div>;
     }
@@ -38,8 +46,8 @@ const PostList = ({post, loading, error, onLoad}) => {
             <button style={{width: '20%'}} onClick={() => onLoad(1)}>
                 user ID 1 post 불러오기
             </button>
-            <button style={{width: '20%'}} onClick={() => onLoad(2)}>
-                user ID 2 post 불러오기
+            <button style={{width: '20%'}} onClick={() => onLoadPhoto(1)}>
+                photo 불러오기
             </button>
 
             {post &&
@@ -53,6 +61,16 @@ const PostList = ({post, loading, error, onLoad}) => {
                                 : p.body}
                         </div>
                     </PostItem>
+                ))}
+
+            {photo &&
+                photo.map((p) => (
+                    <PhotoItem key={p.title}>
+                        <div>
+                            <h3>{p.title}</h3>
+                            <img src={p.thumbnailUrl} alt="thumnail" />
+                        </div>
+                    </PhotoItem>
                 ))}
         </PostListBlock>
     );
