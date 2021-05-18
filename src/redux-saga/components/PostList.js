@@ -22,15 +22,27 @@ const PostItem = styled.div`
 `;
 
 const PostList = ({post, loading, error}) => {
+    if (loading) {
+        return <div>loading...</div>;
+    }
+    if (error) {
+        return (
+            <div>
+                <h2>error</h2>
+                <div>{post.message}</div>
+            </div>
+        );
+    }
     return (
         <PostListBlock>
-            {post.map((p) => (
-                <PostItem>
-                    <h2>{p.title}</h2>
-                    <small>#{p.userId}</small>
-                    <div className="body">{p.body}</div>
-                </PostItem>
-            ))}
+            {post &&
+                post.map((p) => (
+                    <PostItem>
+                        <h2>{p.title}</h2>
+                        <small>#{p.userId}</small>
+                        <div className="body">{p.body}</div>
+                    </PostItem>
+                ))}
         </PostListBlock>
     );
 };
