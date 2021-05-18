@@ -1,12 +1,12 @@
 import React from 'react';
-import PostList from './components/PostList';
+import PostContainer from './containers/PostContainer';
 
 const SagaApp = () => {
     return (
         <div>
             <h1>saga app main</h1>
             <div>
-                <PostList />
+                <PostContainer />
             </div>
         </div>
     );
