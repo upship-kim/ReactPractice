@@ -5,7 +5,8 @@ const PostListBlock = styled.div`
     margin: 0 auto;
     width: 100%;
     display: flex;
-    justify-content: center;
+
+    flex-direction: column;
     padding-top: 1rem;
 `;
 const PostItem = styled.div`
@@ -20,14 +21,16 @@ const PostItem = styled.div`
     }
 `;
 
-const PostList = () => {
+const PostList = ({post, loading, error}) => {
     return (
         <PostListBlock>
-            <PostItem>
-                <h2>title</h2>
-                <small>#userid</small>
-                <div className="body">body</div>
-            </PostItem>
+            {post.map((p) => (
+                <PostItem>
+                    <h2>{p.title}</h2>
+                    <small>#{p.userId}</small>
+                    <div className="body">{p.body}</div>
+                </PostItem>
+            ))}
         </PostListBlock>
     );
 };

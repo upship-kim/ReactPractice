@@ -8,14 +8,15 @@ const GET_POST_SUCCESS = 'post/GET_POST_SUCCESS';
 const GET_POST_FAILURE = 'post/GET_POST_FAILURE';
 
 //액션 함수 정의
-const getPost = createAction(GET_POST, (userId) => userId);
+export const getPost = createAction(GET_POST, (userId) => userId);
 // const getPostSuccess = createAction(GET_POST_SUCCESS);
 // const getPostFailure = createAction(GET_POST_FAILURE);
 
-function* getPostSaga(userId) {
-    yield put(getPost());
+function* getPostSaga(action) {
+    // yield put(getPost());
     try {
-        const post = yield call(api.getPost, userId);
+        const post = yield call(api.getPost, action.payload);
+        console.log(post);
         yield put({type: GET_POST_SUCCESS, payload: post.data});
     } catch (e) {
         yield put({type: GET_POST_FAILURE, payload: e});
@@ -23,7 +24,7 @@ function* getPostSaga(userId) {
 }
 
 export function* postSaga() {
-    yield takeEvery('GET_POST', getPostSaga);
+    yield takeEvery(GET_POST, getPostSaga);
 }
 
 //초기화 값 정의

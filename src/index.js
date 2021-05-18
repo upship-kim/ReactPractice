@@ -7,7 +7,7 @@ import {BrowserRouter} from 'react-router-dom'; //HTML5 History api를 사용해
 import {applyMiddleware, createStore} from 'redux';
 import {Provider} from 'react-redux';
 // import rootReducer, {rootSaga} from './redux(without_book)/modules';
-import rootReducer from './redux-saga/modules';
+import rootReducer, {rootSaga} from './redux-saga/modules';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {createLogger} from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';

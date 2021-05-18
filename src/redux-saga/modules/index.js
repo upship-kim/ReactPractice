@@ -1,6 +1,6 @@
 import React from 'react';
 import {combineReducers} from 'redux';
-import post from './post';
+import post, {postSaga} from './post';
 import {all} from 'redux-saga/effects';
 
 const rootReducer = combineReducers({
@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
 });
 
 export function* rootSaga() {
-    yield all([]);
+    yield all([postSaga()]);
 }
 
 export default rootReducer;
