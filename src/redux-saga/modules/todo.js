@@ -1,6 +1,7 @@
 import {call, put, takeEvery} from '@redux-saga/core/effects';
 import React from 'react';
 import {createAction, handleActions} from 'redux-actions';
+import * as api from '../lib/api';
 
 //액션 정의
 const GET_TODO = 'todo/GET_TODO';
@@ -20,9 +21,9 @@ const initState = {
 };
 
 function* getTodoSaga() {
-    yield put(getTodo());
+    // yield put(getTodo());
     try {
-        const todoData = yield call(getTodo, null);
+        const todoData = yield call(api.getTodoList);
         yield put({type: GET_TODO_SUCCESS, payload: todoData});
     } catch (e) {
         yield put({type: GET_TODO_FAILURE, payload: e});

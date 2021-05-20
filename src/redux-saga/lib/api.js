@@ -12,6 +12,6 @@ export const getAlbum = (id) => {
     );
 };
 
-export const getTodo = () => {
+export const getTodoList = () => {
     return axios.get('https://jsonplaceholder.typicode.com/todos');
 };

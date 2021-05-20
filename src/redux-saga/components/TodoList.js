@@ -15,13 +15,13 @@ const TodoItem = ({todo}) => {
     return (
         <div>
             {todo &&
-                todo.map((t) => (
-                    <>
-                        <input type="checkBox" checked={t.completed} />
+                todo.map((todo) => (
+                    <div>
+                        <input type="checkBox" checked={todo.completed} />
                         <span>
-                            {t.title} (<small>#{t.userId}</small>)
+                            {todo.title} (<small>#{todo.userId}</small>)
                         </span>
-                    </>
+                    </div>
                 ))}
         </div>
     );
