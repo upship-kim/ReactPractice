@@ -23,9 +23,9 @@ function* getTodoSaga() {
     yield put(getTodo());
     try {
         const todoData = yield call(getTodo, null);
-        yield put(getTodoSuccess(todoData));
+        yield put({type: GET_TODO_SUCCESS, payload: todoData});
     } catch (e) {
-        yield put(getTodoFailure(e));
+        yield put({type: GET_TODO_FAILURE, payload: e});
     }
 }
 

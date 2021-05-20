@@ -7,8 +7,8 @@ const TodoContainer = () => {
     const {todo} = useSelector((state) => state.todo);
     const dispatch = useDispatch();
 
-    const onLoad = useCallback(() => {
-        dispatch(getTodo());
+    const onLoad = useCallback(async () => {
+        dispatch(await getTodo());
     }, [getTodo]);
 
     return <TodoList todo={todo} onLoad={onLoad} />;
