@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoList';
 import PostContainer from './containers/PostContainer';
 
 const SagaApp = () => {
@@ -7,6 +8,7 @@ const SagaApp = () => {
             <h1>saga app main</h1>
             <div>
                 <PostContainer />
+                <TodoList />
             </div>
         </div>
     );
