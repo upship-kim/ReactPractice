@@ -11,22 +11,27 @@ const TodoBlock = styled.div`
     flex-direction: column;
 `;
 
-const TodoItem = () => {
+const TodoItem = ({todo}) => {
     return (
         <div>
-            <input type="checkBox" checked={true} />
-            <span>
-                todo 내용 (<small>#userId</small>)
-            </span>
+            {todo &&
+                todo.map((t) => (
+                    <>
+                        <input type="checkBox" checked={t.completed} />
+                        <span>
+                            {t.title} (<small>#{t.userId}</small>)
+                        </span>
+                    </>
+                ))}
         </div>
     );
 };
 
-const TodoList = () => {
+const TodoList = ({onLoad, todo}) => {
     return (
         <TodoBlock>
-            <TodoItem />
-            <TodoItem />
+            <button onClick={() => onLoad()}>Todo 리스트 불러오기</button>
+            <TodoItem todo={todo} />
         </TodoBlock>
     );
 };

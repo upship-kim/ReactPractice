@@ -11,3 +11,7 @@ export const getAlbum = (id) => {
         `https://jsonplaceholder.typicode.com/photos?albumId=${id}`
     );
 };
+
+export const getTodo = () => {
+    return axios.get('https://jsonplaceholder.typicode.com/todos');
+};
